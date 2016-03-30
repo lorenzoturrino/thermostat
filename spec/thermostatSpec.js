@@ -7,7 +7,7 @@ describe('Thermostat', function () {
   });
 
   it('has a default temp of 20ºC', function () {
-    expect(thermostat.temperature).toEqual(temp)
+    expect(thermostat.temperature).toEqual(temp);
   });
 
   describe('change temperature', function () {
@@ -24,14 +24,14 @@ describe('Thermostat', function () {
     it('resets the temperature to 20ºC', function () {
       thermostat.decrease();
       thermostat.resetTemperature();
-      expect(thermostat.temperature).toEqual(temp)
+      expect(thermostat.temperature).toEqual(temp);
     });
   });
 
   describe('temperature limits', function () {
     it('has a minimum temperature of 10 ºC', function () {
-      for(var i = 1; i <= 10; i++) { thermostat.decrease() };
-      var toMin = function() { thermostat.decrease() };
+      for(var i = 1; i <= 10; i++) { thermostat.decrease(); }
+      var toMin = function() { thermostat.decrease();};
       expect(toMin).toThrowError('BEEP');
     });
 
@@ -50,14 +50,14 @@ describe('Thermostat', function () {
       describe('max temperature', function () {
         it('is 25 ºC when saving power', function () {
           thermostat.temperature = 25;
-          var toMax = function () { thermostat.increase() };
+          var toMax = function () { thermostat.increase(); };
           expect(toMax).toThrowError('BOOP');
         });
 
         it('is 32 ºC when not saving power', function () {
           thermostat.temperature   = 32;
           thermostat.isSavingPower = false;
-          var toMax = function () { thermostat.increase() };
+          var toMax = function () { thermostat.increase(); };
           expect(toMax).toThrowError('BOOP');
         });
       });
@@ -68,7 +68,7 @@ describe('Thermostat', function () {
     it('is green when less than 18ºC', function () {
       thermostat.temperature = 15;
       thermostat.decrease();
-      expect(thermostat.colour).toBe('green')
-    })
+      expect(thermostat.colour).toBe('green');
+    });
   });
 });

@@ -1,11 +1,11 @@
 function Thermostat(defaultTemp = 20) {
-  this._defaultTemperature = defaultTemp
+  this._defaultTemperature = defaultTemp;
   this.temperature         = this._defaultTemperature;
   this.isSavingPower       = true;
-  this._minTemperature     = 10
+  this._minTemperature     = 10;
   this._savingPowerMax     = 25;
   this._noSavingPowerMax   = 32;
-  this.colour              = 'yellow'
+  this.colour              = 'yellow';
 }
 
 Thermostat.prototype.increase = function () {
@@ -25,7 +25,7 @@ Thermostat.prototype.decrease = function () {
   };
 
 Thermostat.prototype.resetTemperature = function () {
-  this.temperature = this._defaultTemperature
+  this.temperature = this._defaultTemperature;
   this._defineColour();
 };
 
