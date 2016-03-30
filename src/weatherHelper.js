@@ -12,7 +12,9 @@ function WeatherHelper() {
 }
 
 WeatherHelper.prototype.weatherWriter = function(data) {
-  window.alert(data.name)
+  $("#city").text(data.name);
+  $("#current_weather").text(data.weather[0].description);
+  $("#wind").text("Wind is blowing from "+data.wind.deg+" at "+data.wind.speed );
 }
 
 WeatherHelper.prototype.getWeather = function() {

@@ -11,9 +11,6 @@ $(document).ready(function(){
 
   updateWeather = function() {
     weather.getWeather();
-    $("#city").text("Current Weather in " + weather.weatherData.name);
-    $("#current_weather").text("wow");
-    $("#wind").text("wow");
   };
 
   startUp = function() {
