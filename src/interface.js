@@ -26,12 +26,12 @@ $( document ).ready(function () {
 
   function display(){
     $('#temperature').html(thermostat.temperature + 'ºC');
-    if(thermostat.energyUsage === 'high') {
-      $('#screen').css('background-color', 'rgba(255, 0, 0, 0.5)');
-    } else if(thermostat.energyUsage === 'low') {
-      $('#screen').css('background-color', 'rgba(0, 0, 255, 0.5)');
-    } else if(thermostat.energyUsage === 'medium') {
+    if(thermostat.energyUsage === 'medium') {
       $('#screen').css('background-color', '#98f5c8');
+    } else if(thermostat.energyUsage === 'low') {
+      $('#screen').css('background-color', '#98d6f4');
+    } else {
+      $('#screen').css('background-color', '#f9a72a');
     }
 }
 

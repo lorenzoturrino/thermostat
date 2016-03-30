@@ -13,6 +13,7 @@
   width: 165px;
   height: 100px;
   margin: auto;
+  transition: background-color 0.7s ease;
   background: #98f5c8;
   border-radius: 20px;
   color: white;
