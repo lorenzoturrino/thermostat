@@ -30,3 +30,7 @@ Thermostat.prototype.energyUsage = function(){
     return 'red';
   };
 };
+
+Thermostat.prototype.toggleSaveMode = function(){
+  this.saveMode = !this.saveMode;
+};

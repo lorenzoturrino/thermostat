@@ -72,6 +72,13 @@ describe('Thermostat', function(){
       testThermostat.temp = 30;
       expect(testThermostat.energyUsage()).toEqual('red');
     });
+  });
 
+  describe('#toggleSaveMode', function(){
+    it('switches power save mode', function(){
+      currentMode = testThermostat.saveMode
+      testThermostat.toggleSaveMode();
+      expect(testThermostat.saveMode).toEqual(!currentMode);
+    });
   });
 });
