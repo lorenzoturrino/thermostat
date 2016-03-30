@@ -4,16 +4,21 @@
     <meta charset="utf-8">
     <title>Thermostat</title>
     <script src="src/thermostat.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="src/interface.js"></script>
+    <link type='text/css' rel='stylesheet' href='public/styles/stylesheet.css'/>
   </head>
   <body>
     <div class="thermostat">
       <div id="screen">
-        <div id="temperature">25ºC</div>
+        <div id="temperature"></div>
       </div>
-      <button id="plus">+</button>
-      <button id="minus">-</button>
+      <button id="decrease">-</button>
+      <button id="increase">+</button>
       <button id="reset">reset</button>
-      <button id="powerSaving">power saving</button>
+      <div class='toggle-button' id="PSM">
+        <button ></button>
+      </div>
     </div>
   </body>
 </html>
