@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   var thermo = new Thermostat();
+  var weather = new WeatherHelper();
 
   updateTemperature = function() {
     $("#current_temp").text(thermo.temp);
@@ -8,8 +9,18 @@ $(document).ready(function(){
     $("#power_save_status").text(thermo.powerSaveStatus());
   };
 
-  updateTemperature();
-  
+  updateWeather = function() {
+    weather.getWeather();
+    $("#city").text("Current Weather in " + weather.weatherData.name);
+    $("#current_weather").text("wow");
+    $("#wind").text("wow");
+  };
+
+  startUp = function() {
+    updateTemperature();
+    updateWeather();
+  };
+
 
   $("#temp_up").click(function(){
     thermo.increaseTemperature();
@@ -25,4 +36,6 @@ $(document).ready(function(){
     thermo.toggleSaveMode();
     updateTemperature();
   });
+
+  startUp();
 });
