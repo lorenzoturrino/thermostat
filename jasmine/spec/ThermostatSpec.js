@@ -19,4 +19,14 @@ describe('Thermostat', function(){
     });
   });
 
+  describe('#decreaseTemperature', function(){
+    it('decreases the temp by 1', function(){
+      testThermostat.decreaseTemperature();
+      expect(testThermostat.temp).toEqual(19);
+    });
+    it('cannot decrease the temp lower than 10', function(){
+      testThermostat.temp = 10;
+      expect(testThermostat.temp).toEqual(10);
+    });
+  });
 });

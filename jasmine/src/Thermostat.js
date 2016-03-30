@@ -3,5 +3,11 @@ function Thermostat(){
 }
 
 Thermostat.prototype.increaseTemperature = function(){
-  this.temp += 1;
+  this.temp++;
 };
+
+Thermostat.prototype.decreaseTemperature = function(){
+  if (this.temp > 10){
+    this.temp--;
+  };
+}
