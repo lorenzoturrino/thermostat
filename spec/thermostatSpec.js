@@ -47,6 +47,13 @@ describe('Thermostat', function () {
         expect(thermostat.isSavingPower).toBe(true);
       });
 
+      it('resets to 25ºC when switched on past limit',function () {
+        thermostat.powerSavingMode();
+        thermostat.temperature = thermostat._noSavingPowerMax;
+        thermostat.powerSavingMode();
+        expect(thermostat.temperature).toEqual(thermostat._savingPowerMax);
+      });
+
       describe('max temperature', function () {
         it('is 25 ºC when saving power', function () {
           thermostat.temperature = 25;
