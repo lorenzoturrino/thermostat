@@ -11,4 +11,12 @@ describe('Thermostat', function(){
       expect(testThermostat.temp).toEqual(20);
     });
   });
+
+  describe('#increaseTemperature', function(){
+    it('increases the temp by 1', function(){
+      testThermostat.increaseTemperature();
+      expect(testThermostat.temp).toEqual(21);
+    });
+  });
+
 });
