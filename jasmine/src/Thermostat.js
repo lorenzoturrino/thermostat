@@ -13,4 +13,20 @@ Thermostat.prototype.decreaseTemperature = function(){
   if (this.temp > 10){
     this.temp--;
   };
-}
+};
+
+Thermostat.prototype.reset = function(){
+  this.temp = 20;
+};
+
+Thermostat.prototype.energyUsage = function(){
+  if (this.temp < 18){
+    return 'green';
+  }
+  else if (this.temp >= 18 && this.temp < 24){
+    return 'yellow';
+  }
+  else {
+    return 'red';
+  };
+};

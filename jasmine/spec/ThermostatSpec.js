@@ -50,4 +50,28 @@ describe('Thermostat', function(){
       expect(testThermostat.temp).toEqual(10);
     });
   });
+
+  describe('#reset', function(){
+    it('resets the temp to 20', function(){
+      testThermostat.temp = 21;
+      testThermostat.reset();
+      expect(testThermostat.temp).toEqual(20);
+    });
+  });
+
+  describe('#energyUsage', function(){
+    it('displays green when temp < 18', function(){
+      testThermostat.temp = 17;
+      expect(testThermostat.energyUsage()).toEqual('green');
+    });
+    it('displays yellow when 18 =< temp < 25', function(){
+      testThermostat.temp = 20;
+      expect(testThermostat.energyUsage()).toEqual('yellow');
+    });
+    it('displays red temp >= 25', function(){
+      testThermostat.temp = 30;
+      expect(testThermostat.energyUsage()).toEqual('red');
+    });
+
+  });
 });
