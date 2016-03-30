@@ -2,25 +2,27 @@ $(document).ready(function(){
 
   var thermo = new Thermostat();
 
+  updateTemperature = function() {
+    $("#current_temp").text(thermo.temp);
+    $(".display_box").css("background-color",thermo.energyUsage());
+    $("#power_save_status").text(thermo.powerSaveStatus());
+  };
+
+  updateTemperature();
+  
+
   $("#temp_up").click(function(){
     thermo.increaseTemperature();
-    $("#current_temp").text(thermo.temp);
+    updateTemperature();
   });
 
   $("#temp_down").click(function(){
     thermo.decreaseTemperature();
-    $("#current_temp").text(thermo.temp);
+    updateTemperature();
   });
 
   $("#toggle_save").click(function(){
     thermo.toggleSaveMode();
-    $("#power_save_status").text(function(){
-      if (thermo.saveMode){
-        return "Power save more: ON";
-      }
-      else {
-        return "Power save more: OFF";
-      }
-    });
+    updateTemperature();
   });
 });

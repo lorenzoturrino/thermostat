@@ -34,3 +34,12 @@ Thermostat.prototype.energyUsage = function(){
 Thermostat.prototype.toggleSaveMode = function(){
   this.saveMode = !this.saveMode;
 };
+
+Thermostat.prototype.powerSaveStatus = function(){
+  if(this.saveMode){
+    return 'Power Save mode: ON';
+  }
+  else {
+    return 'Power Save mode: OFF';
+  }
+};

@@ -34,7 +34,7 @@ describe('Thermostat', function(){
       testThermostat.saveMode = false;
       for(t=0;t<10;t++) {
         testThermostat.increaseTemperature();
-      };
+      }
       expect(testThermostat.temp).toEqual(32);
     });
   });
@@ -76,9 +76,20 @@ describe('Thermostat', function(){
 
   describe('#toggleSaveMode', function(){
     it('switches power save mode', function(){
-      currentMode = testThermostat.saveMode
+      currentMode = testThermostat.saveMode;
       testThermostat.toggleSaveMode();
       expect(testThermostat.saveMode).toEqual(!currentMode);
+    });
+  });
+
+  describe('#powerSaveStatus', function(){
+    it('returns on when on', function(){
+      testThermostat.saveMode = true;
+      expect(testThermostat.powerSaveStatus()).toEqual("Power Save mode: ON");
+    });
+    it('returns off when off', function(){
+      testThermostat.saveMode = false;
+      expect(testThermostat.powerSaveStatus()).toEqual("Power Save mode: OFF");
     });
   });
 });
