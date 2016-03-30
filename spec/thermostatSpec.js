@@ -64,11 +64,23 @@ describe('Thermostat', function () {
     });
   });
 
-  describe('thermostat colour', function () {
-    it('is green when less than 18ºC', function () {
+  describe('thermostat energy usage', function () {
+    it('is low when less than 18ºC', function () {
       thermostat.temperature = 15;
       thermostat.decrease();
       expect(thermostat.energyUsage).toBe('low');
+    });
+
+    it('is medium between 18ºC and 25ºC', function () {
+      thermostat.temperature = 22;
+      thermostat.decrease();
+      expect(thermostat.energyUsage).toBe('medium');
+    });
+
+    it('is high when greater than 25ºC', function () {
+      thermostat.temperature = 30;
+      thermostat.decrease();
+      expect(thermostat.energyUsage).toBe('high');
     });
   });
 });
