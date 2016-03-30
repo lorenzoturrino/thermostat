@@ -68,7 +68,7 @@ describe('Thermostat', function () {
     it('is green when less than 18ºC', function () {
       thermostat.temperature = 15;
       thermostat.decrease();
-      expect(thermostat.colour).toBe('green');
+      expect(thermostat.energyUsage).toBe('low');
     });
   });
 });

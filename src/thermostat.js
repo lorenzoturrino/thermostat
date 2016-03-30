@@ -5,7 +5,7 @@ function Thermostat(defaultTemp = 20) {
   this._minTemperature     = 10;
   this._savingPowerMax     = 25;
   this._noSavingPowerMax   = 32;
-  this.colour              = 'yellow';
+  this.energyUsage         = 'medium';
 }
 
 Thermostat.prototype.increase = function () {
@@ -43,10 +43,10 @@ Thermostat.prototype.maxTemp = function () {
 
 Thermostat.prototype._defineColour = function () {
   if(this.temperature > 25){
-    this.colour = 'red';
+    this.energyUsage = 'high';
   } else if (this.temperature > 18) {
-    this.colour = 'yellow';
+    this.energyUsage = 'medium';
   } else {
-    this.colour = 'green';
+    this.energyUsage = 'low';
   }
 };
