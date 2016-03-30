@@ -6,13 +6,13 @@ function Thermostat(){
 Thermostat.prototype.increaseTemperature = function(){
   if(this.saveMode && this.temp < 24 || !this.saveMode && this.temp < 32){
     this.temp++;
-  };
+  }
 };
 
 Thermostat.prototype.decreaseTemperature = function(){
   if (this.temp > 10){
     this.temp--;
-  };
+  }
 };
 
 Thermostat.prototype.reset = function(){
@@ -28,7 +28,7 @@ Thermostat.prototype.energyUsage = function(){
   }
   else {
     return 'red';
-  };
+  }
 };
 
 Thermostat.prototype.toggleSaveMode = function(){
