@@ -106,21 +106,29 @@ border-radius: 3px;
 }
 .toggle-button-selected button {
   cursor: pointer;
-outline: 0;
-display: block;
-position: absolute;
-left: 13px;
-top: 0;
-border-radius: 100%;
-background-color: #7DA750;
-/* margin: -3px 0 0 -3px; */
-width: 5px;
-height: 15px;
- border: 2px solid #6E904B;
-/* box-shadow: 0 0 4px rgba(0,0,0,0.1); */
+  outline: 0;
+  display: block;
+  position: absolute;
+  left: 13px;
+  top: 0;
+  border-radius: 100%;
+  background-color: #7DA750;
+  width: 5px;
+  height: 15px;
+   border: 2px solid #6E904B;
 }
 
 button {
   border:none;
   cursor: pointer;
+}
+
+article.weather {
+  text-align: center;
+  background-color: pink;
+  font-family: cursive;
+  width: 180px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
 }
