@@ -2,13 +2,23 @@ var thermostat = new Thermostat();
 
 $( document ).ready(function () {
   display();
-  var requestUrl = 'http://api.openweathermap.org/data/2.5/weather';
-  var data = {
-    appid: 'e78eae9d558ce82d7f280b91150af623',
-    id: 2643743,
-    units: 'metric'
-  };
-  $.getJSON(requestUrl, data, updateWeather);
+
+  function getWeather(cityName) {
+    var requestUrl = 'http://api.openweathermap.org/data/2.5/weather';
+    var data = {
+      appid: 'e78eae9d558ce82d7f280b91150af623',
+      units: 'metric',
+    };
+    if(cityName) {
+      data.q = cityName;
+    }
+    else {
+      data.id = 2643743;
+    }
+
+    $.getJSON(requestUrl, data, updateWeather);
+  }
+
   function updateWeather(weatherData) {
     var cityName, weather, wind, temperature, iconUrl;
     cityName = weatherData.name;
@@ -26,6 +36,7 @@ $( document ).ready(function () {
     $('#outside-temperature').html(temperature);
     $('#weather-icon').attr('src', iconUrl);
   }
+
   $('#increase').click(function () {
     thermostat.increase();
     display();
@@ -47,6 +58,12 @@ $( document ).ready(function () {
     display();
   });
 
+  $('#city-selector').click(function () {
+    cityName = $('#user-city').val();
+    getWeather(cityName);
+  });
+
+
   function display(){
     $('#temperature').html(thermostat.temperature + 'ºC');
 
@@ -61,4 +78,31 @@ $( document ).ready(function () {
       $('#screen').css('background-color', color);
     }
   }
+
+  function getStoredTemperature(){
+    var url = "http://localhost:9292/temperature";
+    var data = {
+      dummy: 'hello'
+    };
+    jQuery.get(url,data,function(storedTemp){
+      console.log(storedTemp);
+      thermostat.temperature = storedTemp;
+    });
+    display();
+  }
+
+  function storeTemperature(){
+    var url = "http://localhost:9292/temperature";
+    var data = {
+      temperature: thermostat.temperature
+    };
+    jQuery.post( url , data, function(){
+      console.log("success");
+    });
+  }
+
+  storeTemperature();
+  getStoredTemperature();
+
+  getWeather(null);
 });
